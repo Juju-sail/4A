@@ -1,0 +1,11 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"90-18062018-051841";"";
+"REFERENCE";"52-1-3790";"";
+"TraceParts.PartTitle";"Charnière avec rondelles nylon";"";
+"TraceParts.InstanceId";"90-18062018-0518418IAHRKCBPUI3P0S3VP7H08WH5";"";
+"finish";"brut";"";
+"TraceParts.PartLanguage";"fr";"";
+"SUPPLIER";"PINET INDUSTRIE";"";
+"DESIGN";"Charnière avec rondelles nylon";"";
+"TraceParts.PartVersion";"1.0.5";"";
+"MATERIAL";"inox 304";"";
