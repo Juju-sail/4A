@@ -1,20 +1,12 @@
+%% Attention, ce script ne fonctionne qu'avec des problèmes de même taille%%
 clc;
 clear;
-%% Attention, ce script ne fonctionne qu'avec des problèmes de même taille%%
-
 %% Passer de la forme standard à un tableau pour étape 1 de la méthode :
 A = [3 9 ; 4 5 ; 2 1 ];
 C = [6 4];
 B = [81 55 20];
 
-N = [3 4 5];
-H = [1 2];
-I3 = eye(size(A,1));
-LN = [0 0 0];
-
-tab = [N H 0; %Première ligne du tableau : nos variables (N H et vide)
-    I3 A transpose(B); % AN (ici I3) AH et B pour le deuxième Bloc
-    LN C 0]; % LN LH et -F (ici nulle)
+tab = fromSTRDtoMAT(A,B,C);
 
 %% Appel de la méthode des tableaux
 disp("Matrice de départ : ")
@@ -33,7 +25,17 @@ disp(' ')
 disp("Matrice finale : ")
 matrice
 
-%% Fonction propre :
+%% Fonctions propre :
+function [tab] = fromSTRDtoMAT(A,B,C)
+    N =(size(C,2)+1:1:size(C,2)+size(B,2));%N = [3 4 5];
+    H = (1:1:size(C,2));%H = [1 2];
+    I3 = eye(size(A,1));
+    LN = zeros(1,size(B,2));%LN = [0 0 0];
+
+    tab = [N H 0; %Première ligne du tableau : nos variables (N H et vide)
+    I3 A transpose(B); % AN (ici I3) AH et B pour le deuxième Bloc
+    LN C 0]; % LN LH et -F (ici nulle)
+end
 
 function [Xopt, ValFoncObjectif] = methodesTableaux(mat)
     %On prend le max de LH
