@@ -1,0 +1,55 @@
+%% Preparation fonction :
+% Choix variable entrante : 
+%On prend le max de LH
+[x, y] = size(tab);
+LH = C; %LH = [tab(x,y-2) tab(x,y-1)];
+[max , indexMax] = max(LH);
+%Et on recuperer le num de la variable associée
+indexMax = indexMax + size(A,1); % indexMax = indexMax + y - 3;
+% Variable entrante :
+e = tab(1, indexMax);
+
+% Choix variable sortante :
+%On fait nos rapports et on garde le plus petit
+min = Inf;
+for i = 2:(size(A,1)+1)
+    tempo = tab(i,6)/tab(i,indexMax);
+    if min>tempo
+        min = tempo;
+        indexMin = i;
+    end
+end
+% Le plus petit rapport est :
+min;
+% il nous permet d'avoir notre pivot
+coordPivot = [indexMax indexMin];
+valPivot = tab(indexMin,indexMax);
+%Trouvons la variable associée (et donc sortante)
+[a,indexa] = find(I3((indexMin - 1),:));
+
+s = tab(1, indexa);
+
+% Transformons nos lignes par rapport au pivot
+
+Xxopt = zeros(x,y);
+Xxopt(1,:) = tab(1,:);
+
+for i=2:indexMin-1
+    Xxopt(i,:) = tab(i,:) - (tab(i,indexMax)/valPivot)*tab(indexMin,:);
+end
+
+for i=indexMin+1:size(tab)
+    Xxopt(i,:) = tab(i,:) - (tab(i, indexMax)/valPivot)*tab(indexMin,:);
+end
+Xxopt(indexMin,:) = tab(indexMin,:)/valPivot;
+
+% extraire la valeur de F :
+F = Xxopt(x,y);
+% IL FAUT MAINTENANT REMETTRE LA MATRICE à L'ENDROIT !!!
+tempo = Xxopt(:,indexMax);
+Xxopt(:,indexMax) = Xxopt(:,indexa);
+Xxopt(:,indexa) = tempo;
+
+
+% Le tout à recommencer jusqu'a ce que les deux coefs de LH soient negatifs
+% Il y aura également d'autres conditions d'arret à ajouter

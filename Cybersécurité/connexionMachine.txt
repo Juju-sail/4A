@@ -1,0 +1,25 @@
+Me connecter au serveur du prof :
+ssh -D 123 juliette@p1855460a.probes.atlas.ripe.net
+passwd : adista
+
+Me connecter à ma machine :
+ssh admin@192.168.0.212
+passwd : JeSuisLaMeilleure
+
+Pour avoir les droits root :
+$ su root
+Password : IwantToBeRoot
+---------------------------------------------
+Base de données distante et mise en place Cloud :
+
+à Mettre sur ma machine :
+Maria DB
+sécurités (refuser les accès, sauf celui d'Antoine)
+
+à Mettre sur la machine d'Antoine :
+NextCloud
+Apache
+sécurités
+accès ssh + https
+
++ parefeu
