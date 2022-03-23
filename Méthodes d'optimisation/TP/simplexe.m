@@ -3,8 +3,16 @@ clc;
 clear;
 %% Passer de la forme standard à un tableau pour étape 1 de la méthode :
 A = [3 9 ; 4 5 ; 2 1 ];
+%A = [2 3 ; 4 2];
+%A = [2 1 ; 1 2 ; 0 1];
+
 C = [6 4];
+%C = [20 25];
+%C = [4 5];
+
 B = [81 55 20];
+%B = [40 48];
+%B = [800 700 300];
 
 tab = fromSTRDtoMAT(A,B,C);
 
@@ -13,7 +21,7 @@ disp("Matrice de départ : ")
 matrice = tab
 iter = 0;
 [x,y] = size(matrice);
-while matrice(x,y-2)>0||matrice(x,y-1)>0
+while matrice(x,y-2)>0||matrice(x,y-1)>0 % Mon while n'est pas bon
     [matrice, Fmax] = methodesTableaux(matrice);
     iter = iter +1;
 end
