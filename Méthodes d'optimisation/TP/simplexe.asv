@@ -1,8 +1,8 @@
-%% Attention, ce script ne fonctionne qu'avec des problèmes de même taille (problème plan)%%
+%% Attention, ce script ne fonctionne qu'avec des problèmes de même taille%%
 clc;
 clear;
 %% Passer de la forme standard à un tableau pour étape 1 de la méthode :
-A = [3 9 ; 4 5 ; 2 1 ];
+%A = [3 9 ; 4 5 ; 2 1 ];
 %A = [2 3 ; 4 2];
 %A = [2 1 ; 1 2 ; 0 1];
 
@@ -22,12 +22,14 @@ matrice = tab
 iter = 0;
 [x,y] = size(matrice);
 
-while matrice(x,y-2)>0||matrice(x,y-1)>0
+while matrice(x,y-2)>0||matrice(x,y-1)>0 % Mon while n'est pas bon
+    matrice(x,y-2)
+    matrice(x,y-1)
     [matrice, Fmax] = methodesTableaux(matrice);
     iter = iter +1;
 end
 
-disp("Valeur fonction objectif : "+abs(Fmax))
+disp("Valeur fonction objectif : "+Fmax)
 disp("Nombre d'étapes à la méthode des tableaux : " + iter)
 disp("Variables hors base : x"+matrice(1,y-2)+" & x"+matrice(1,y-1))
 disp(' ')
@@ -59,8 +61,8 @@ function [Xopt, ValFoncObjectif] = methodesTableaux(mat)
     %On fait nos rapports et on garde le plus petit
     min = Inf;
     for i = 2:(y-2) %valable uniquement si on travaille avec deux variables hors base
-        tempo = mat(i,y)/mat(i,indexMax);
-        if min>tempo && mat(i,indexMax)>0 % La deuxième partie du if permet de ne pas prendre un pivot negatif
+        tempo = mat(i,6)/mat(i,indexMax);
+        if min>tempo
             min = tempo;
             indexMin = i;
         end
