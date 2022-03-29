@@ -1,4 +1,4 @@
-Ma réalisation du script permettant une résolution d'un problème de maximisation via la méthode des tableaux.
+**Ma réalisation du script permettant une résolution d'un problème de maximisation via la méthode des tableaux : **
 Aujourd'hui, il est capable de résoudre uniquement des problèmes plans.
 
 Afin d'utiliser le script, commencez par définir A, B et C les trois matrices d'un problème de maximisation sous forme standard.
@@ -14,4 +14,12 @@ Portez votre attention sur le volet de commande :![image-20220329175728394](C:\U
 Le script a bien résolu le problème.
 
 _______________________________________________________________________________________________________________________________________________________
+
+Si vous souhaitez plus d'informations sur le contenu de la fonction, je vous conseille de vous reportez au code qui est extrêmement commenté.
+
+_________________________________________________________________________________
+
+Pour créer ce script, j'y suis allé pas à pas en commençant par faire un script "dur", très statique basé sur mes exercices de TD. Par exemple pour créer ma matrice de départ, je rentrais N, H, I3, LN, A, B et C. C'est seulement une fois que mon script statique fonctionnait que j'ai cherché à l'optimiser, l'automatiser. Il conserve malheureusement une grosse faille : il ne peut résoudre uniquement des problèmes plans (soit avec deux variables hors base). J'ai déjà identifié les lignes à changer, mais n'ai pas réussi à finaliser l'optimisation.
+
+________
 
