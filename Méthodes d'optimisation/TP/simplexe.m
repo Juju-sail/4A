@@ -2,18 +2,18 @@
 clc;
 clear;
 %% Passer de la forme standard à un tableau pour étape 1 de la méthode :
-A = [3 9 ; 4 5 ; 2 1 ];
+%A = [3 9 ; 4 5 ; 2 1 ];
 %A = [2 3 ; 4 2];
 %A = [2 1 ; 1 2 ; 0 1];
-
-C = [6 4];
+A = [2 3 ; 4 2];
+%C = [6 4];
 %C = [20 25];
 %C = [4 5];
-
-B = [81 55 20];
+C = [20 25];
+%B = [81 55 20];
 %B = [40 48];
 %B = [800 700 300];
-
+B = [40 48];
 tab = fromSTRDtoMAT(A,B,C);
 
 %% Appel de la méthode des tableaux
@@ -68,7 +68,7 @@ function [Xopt, ValFoncObjectif] = methodesTableaux(mat)
     % Le plus petit rapport est :
     min;
     % il nous permet d'avoir notre pivot
-    coordPivot = [indexMax indexMin];
+    coordPivot = [indexMax indexMin]
     valPivot = mat(indexMin,indexMax);
     %Trouvons la variable associée (et donc sortante)
     I3 = eye(y-3);
