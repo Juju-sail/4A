@@ -23,3 +23,14 @@ sécurités
 accès ssh + https
 
 + parefeu
+-----------------------------------------------
+
+Sur mariadb : 
+Creer une table
+Creer un user distant
+mettre les privilèges de l'utilisateur sur la table
+
+
+NFTable :
+Authoriser en entrée IPAntoine via port 3306 et 22
+En sortie : tout est authorisé
