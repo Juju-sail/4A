@@ -1,0 +1,11 @@
+Exercice 6 :
+
+Nous allons écrire deux scripts Python dans un dossier exercice04.
+Objectif : exporter toutes les notes de votre service de notes vers CBOR.
+Définissez d’abord des numéros de tags (> 500) pour les champs de votre note (titre, corps, …).
+
+Écrivez un script qui utilise requests pour récupérer toutes les notes de votre serveur de notes et les sauvegarder dans un objet CBOR.
+Utilisez les tags que vous avez définies précédemment.
+
+Écrivez un deuxième script qui lit un CBOR comme celui généré par le premier script et produit un bel objet JSON.
+Il n’est pas important d’avoir une belle interface utilisateur. Par exemple, il est possible de coder en dur les noms de fichiers.

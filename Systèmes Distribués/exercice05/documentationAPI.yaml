@@ -1,0 +1,205 @@
+swagger: "2.0"
+info:
+  description: "API concue par Juliette dans le cadre du cours de systemes distribués à Polytech Nancy en 4A IA2R FISA. \n --> fait en janvier 2022"
+  version: "2.0"
+  title: "BlocNotes"
+tags:
+- name: "note"
+  description: "Votre note"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+paths:
+  /notes/{number}:
+    get:
+      tags:
+      - "note"
+      summary: "Afficher vos notes"
+      parameters:
+      - in: "path"
+        name: "number"
+        type : "string"
+        required: true
+      responses:
+        "405":
+         description: "Invalid input"
+        "200":
+         description: "Successful operation"
+         schema: 
+          type: "object"
+          required:
+          - "id"
+          - "titre"
+          - "contenu"
+          - "proprietaire"
+          properties:
+            id:
+              type: "string"
+              example: "daba3d8b-afee-4579-8e36-170de5e34bc3"
+              description: "généré automatiquement"
+            titre:
+              type: "string"
+              example: "A faire cette semaine"
+            contenu:
+              type: "string"
+              format: "utf8"
+              example: "Changer piles télécommande TV"
+            proprietaire: 
+              type: "string"
+              format : "utf8"
+              example: "Juliette"
+            categories:
+              type: "array"
+              items:
+                type: "object"
+                required:
+                - "categorie1"
+                - "categorie2"
+                - "categorie3"
+                properties:
+                  categorie1:
+                    type: "string"
+                    example: "courses"
+                  categorie2:
+                    type: "string"
+                    example: " "
+                  categorie3:
+                    type: "string"
+                    example: " "
+        
+  /notes/{number}/categories:
+    get:
+      tags:
+      - "note"
+      summary: "Afficher les categories de vos notes"
+      parameters:
+      - in: "path"
+        name: "number"
+        type : "string"
+        required: true
+      responses:
+        "405":
+         description: "Invalid input"
+        "200":
+         description: "Successful operation"
+         schema: 
+          type: "object"
+          required:
+          - "number"
+          properties:
+            number:
+              type: "integer"
+              example: "0"
+            categorie1:
+              type: "string"
+              example: "courses"
+            categorie2:
+              type: "string"
+              example: " "
+            categorie3:
+              type: "string"
+              example: " "
+  
+  /note:
+    post:
+      tags:
+      - "note"
+      summary: "Creer une note"
+      parameters:
+      - in: "query"
+        name: "titre"
+        type: "string"
+        required: true
+        description: "titre de la note"
+        default: "New Note"
+      - in: "query"
+        name: "contenu"
+        type: "string"
+        required: true
+        description: "contenu de la note"
+        default: "..."
+      - in: "query"
+        name: "proprietaire"
+        type: "string"
+        required: true
+        description: "proprietaire de la note"
+        default: "ordi"
+      responses:
+        "405":
+          description: "Invalid input"
+  /modif:
+    post:
+      tags:
+      - "note"
+      summary: "Modifier une note existante"
+      parameters:
+      - in: "query"
+        name: "id"
+        type: "integer"
+        required: true
+        description: "numero de la note"
+        default: 0
+      - in: "query"
+        name: "titre"
+        type: "string"
+        required: false
+        description: "Nouveau titre de la note"
+      - in: "query"
+        name: "contenu"
+        type: "string"
+        required: false
+        description: "Nouveau contenu de la note"
+      - in: "query"
+        name: "proprietaire"
+        type: "string"
+        required: false
+        description: "Nouveau proprietaire de la note"
+      responses:
+        "405":
+         description: "Invalid input"
+  
+  /modif/categories:
+    post:
+      tags:
+      - "note"
+      summary: "Modifier les categories d'une note existante"
+      parameters:
+      - in: "query"
+        name: "id"
+        type: "integer"
+        required: true
+        description: "numero de la note"
+        default: 0
+      - in: "query"
+        name: "categorie1"
+        type: "string"
+        required: false
+        description: "Première categorie de la note"
+      - in: "query"
+        name: "categorie2"
+        type: "string"
+        required: false
+        description: "Deuxième categorie de la note"
+      - in: "query"
+        name: "categorie3"
+        type: "string"
+        required: false
+        description: "Troisième categorie de la note"
+      responses:
+        "405":
+         description: "Invalid input"
+  
+  /note/{number}:
+      delete:
+        tags:
+        - "note"
+        summary: "Supprimer une note"
+        parameters:
+        - in: "path"
+          required: true
+          name: "number"
+          type: "integer"
+          description: "choisir un numero"
+        responses:
+          "405":
+            description: "Invalid input"

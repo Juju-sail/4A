@@ -1,0 +1,118 @@
+## Exercice 1 :
+    
+Créez un dossier exercise01 dans votre dépôt Git.
+Trouvez les commandes curl qui ont les effets suivants et enregistrez-les dans un fichier curl.txt dans exercise01.
+
+Prévisions météorologiques pour l’endroit où vous avez célébré le nouvel an en français.
+Idem, mais seulement la météo actuelle et les prévisions du jour et sans la ligne “Suivez …”.
+Idem, mais comme une image avec 25% de transparence.
+Obtenir les prévisions sous forme de fichier JSON
+
+Créez des requêtes Postman qui ont les mêmes effets, créez un colleciton Postman et exportez-le dans le dossier.
+
+## Exercice 2 :
+
+Créer un nouveau dossier exercice02
+Ecrivez un script Python qui
+	Demande une list (comme vous voulez, je propose argparse) de ville à l’utilisateur
+    	Utilise la sortie json de wttr.in pour trouver la ville où la température est la plus agréable (feels like)
+    	Imprimer cette ville et la température actuelle
+    	Imprimez ces températures pour toutes les autres villes ainsi que la différence avec la meilleure ville.
+    	Ajouter une option pour imprimer ces données en JSON
+Sauvegardez-le dans le dossier.
+
+## Exercise 3 :
+
+Créez un projet java avec unirest. https://kong.github.io/unirest-java/
+Implémentez l’équivalent de :
+   $ curl https://api.github.com/users/{your username}
+Ajouter l’authentification et montrer le nombre de dépôts privés (voir diapo suivante).
+
+
+Développer le projet de la dernière fois
+Demander un nom d’user GitHub (par défaut votre user)
+Imprimer quelques détails pour l’user profile, lister les repos, et demander un repo (par défaut le repo de cours).
+Imprimer les détails du repo (y compris le nombre de issues ouverts).
+Stockez seulement l’URL pour obtenir le profil de l’user, utilisez le _url de la réponse par la suite (si cela est possible).
+
+Créer des classes pour : issues, label, comments
+Étendre l’interface pour afficher les issues d’un repo, les détails d’un issues (y compris les label) et les commentaires.
+Utilisez un objet Java cette fois, pas un JsonNode.
+
+
+Lister également les commentaires pour un numéro (jusqu’aux 30 premiers)
+Ajouter une fonction permettant de publier un commentaire.
+Si vous faites de bons progrès
+	Ajouter un support pour supprimer un commentaire
+	Mettre à jour un commentaire
+        Afficher plusieurs pages de commentaires
+
+
+Imprimer une liste de toutes les requêtes HTTP effectuées (type et URL) lorsque l’utilisateur quitte le programme. (C’est la dernière chose que nous ajoutons au programme)
+
+## Exercice 4
+
+Concevez une API pour un service simple d’enregistrement de notes.
+
+	Concevez une API qui permette de sauvegarder une note de texte.
+    	Une note possède une liste de tags et se trouve dans une seule catégorie.
+Conseil : définissez d’abord les types de données : note, tag, catégorie. Puis les chemins. Lisez l’exemple par défaut “Pet Store” dans l’éditeur pour comprendre la structure d’un fichier Swagger.
+
+Utilisez https://editor.swagger.io/ pour créer l’API
+
+Lorsque vous avez terminé, utilisez “File -> Save as YAML” et enregistrez le résultat dans un dossier exercice04 dans votre dépôt Git.
+
+## Exercice 5
+
+Utilisez l’Initializr pour configurer un projet Spring Boot dans un dossier “exercice05”.
+Créez une classe ave @Restcontroller NoteApp et ajoutez un endpoint “hello world” comme dans l’exemple.
+
+Implémenter une classe pour notes
+Ajouter une liste de notes à la classe NoteApp.
+Ajoutez quelques notes de remplacement à la liste (dans le constructeur de NoteApp).
+Mettez en œuvre des requêtes GET à partir de votre Swagger qui renvoient des notes.
+(Testez avec curl ou Postman)
+
+Ajout d’un support pour la création de notes
+Ajout d’un support pour la suppression des notes
+
+Ajoutez une annotation à vos objets à valider (Note).
+Créer une méthode pour mettre à jour une note (si vous avez une telle méthode dans votre Swagger)
+
+Ajouter des classes d’exception personnalisées pour vos cas d’erreur
+Ajouter une classe @RestControllerAdvice
+Gérer toutes vos exceptions personnalisées et l’exception MethodArgumentNotValidException.
+Essayez de déclencher une autre exception en testant avec Postman. Si vous en trouvez une, gérez-la aussi.
+
+Mettre en place un support pour les catégories :
+	Classe de catégorie
+    	Création de catégories, modification, suppression
+    	Définition de la catégorie d’une note
+    	Que se passe-t-il si vous supprimez une catégorie qui est utilisée par certaines notes ?
+
+Ajoutez des traces à tous les gestionnaires (y compris les gestionnaires d’exception !) et des messages INFO utiles aux méthodes clés.
+
+Écrivez quelques tests :
+	Au moins un qui crée une note, la récupère, la supprime et teste si elle a été supprimée.
+
+## Exercice 6 :
+
+Nous allons écrire deux scripts Python dans un dossier exercice04.
+Objectif : exporter toutes les notes de votre service de notes vers CBOR.
+Définissez d’abord des numéros de tags (> 500) pour les champs de votre note (titre, corps, …).
+
+Écrivez un script qui utilise requests pour récupérer toutes les notes de votre serveur de notes et les sauvegarder dans un objet CBOR.
+Utilisez les tags que vous avez définies précédemment.
+
+Écrivez un deuxième script qui lit un CBOR comme celui généré par le premier script et produit un bel objet JSON.
+Il n’est pas important d’avoir une belle interface utilisateur. Par exemple, il est possible de coder en dur les noms de fichiers.
+
+## Exercice 7
+
+Dans un dossier exercise07.
+Nous allons créer un service très simple qui renvoie la température d’une ville et peut convertir les températures de Celcius en Fahrenheit.
+Créer un schéma Cap’n Proto pour cela appelé temperature.capnp.
+
+Mettez en œuvre le système comme un simple système client-serveur avec des données fictives.
+
+

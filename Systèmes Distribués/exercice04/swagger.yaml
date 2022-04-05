@@ -1,0 +1,112 @@
+swagger: "2.0"
+info:
+  description: "API concue par Juliette dans le cadre du cours de systemes distribués à Polytech Nancy en 4A IA2R FISA. \n --> fait en janvier 2022 sur Swagger.io"
+  version: "1.0"
+  title: "BlocNotes"
+tags:
+- name: "note"
+  description: "Votre note"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+- name: "proprietaire"
+  description: "Créateur de notes"
+paths:
+  /note:
+    post:
+      tags:
+      - "note"
+      summary: "Creer une note"
+      description: ""
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Note"
+      responses:
+        "405":
+          description: "Invalid input"
+      
+  /proprietaire:
+    post:
+      tags:
+      - "proprietaire"
+      summary: "Creer un proprietaire de note"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Proprietaire"
+      responses:
+          "405":
+            description: "Invalid input"
+    
+  
+definitions:
+  Categorie:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        enum:
+        - "rappel"
+        - "liste"
+        - "idée"
+    xml:
+      name: "Categorie"
+  Proprietaire:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      username:
+        type: "string"
+        example: "Juliette"
+    xml:
+      name: "Proprietaire"
+  Note:
+    type: "object"
+    required:
+    - "titre"
+    - "contenu"
+    - "proprietaire"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      category:
+        $ref: "#/definitions/Categorie"
+      titre:
+        type: "string"
+        example: "A faire cette semaine"
+      contenu:
+        type: "string"
+        format: "utf8"
+        example: "Changer piles télécommande TV"
+      proprietaire: 
+        $ref: "#/definitions/Proprietaire"
+      status:
+        type: "string"
+        description: "état de la note"
+        enum:
+        - "archivée"
+        - "en cours"
+        - "à venir"
+    xml:
+      name: "Note"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"

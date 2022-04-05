@@ -1,0 +1,9 @@
+Prévisions météorologiques pour l’endroit où vous avez célébré le nouvel an en france : 
+	curl fr.wttr.in/Vandoeuvre-les-nancy
+Idem, mais seulement la météo actuelle et les prévisions du jour et sans la ligne “Suivez …” : 
+	 curl fr.wttr.in/vandoeuvre-les-nancy?1F
+Idem, mais comme une image avec 25% de transparence :
+	curl -o MeteoVandoeuvre.png https://fr.wttr.in/vandoeuvre-les-nancy_1F_transparency=100.png
+Idem, mais sous forme de fichier JSON :
+	curl wttr.in/vandoeuvre-les-nancy?format=j1
+

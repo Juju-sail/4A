@@ -1,0 +1,11 @@
+Exercice 1 :
+    
+Créez un dossier exercise01 dans votre dépôt Git.
+Trouvez les commandes curl qui ont les effets suivants et enregistrez-les dans un fichier curl.txt dans exercise01.
+
+Prévisions météorologiques pour l’endroit où vous avez célébré le nouvel an en français.
+Idem, mais seulement la météo actuelle et les prévisions du jour et sans la ligne “Suivez …”.
+Idem, mais comme une image avec 25% de transparence.
+Obtenir les prévisions sous forme de fichier JSON
+
+Créez des requêtes Postman qui ont les mêmes effets, créez un colleciton Postman et exportez-le dans le dossier.

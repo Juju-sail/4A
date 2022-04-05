@@ -1,0 +1,25 @@
+creer note par defaut via invite ubuntu :
+	XX curl 1localhost:8080/note -X POST -v XX
+		Le titre de la note est obligatoire
+	curl localhost:8080/note?titre=Test -X POST -v
+ou, si on veut des espaces dans le titre :
+	curl localhost:8080/note --data-urlencode titre="Notes de maths" -X POST -v
+
+creer une note precise via invite ubuntu :
+	curl localhost:8080/note --data-urlencode titre="Achats pc" --data-urlencode contenu="cpu : hexa core ou octo core (ryzen/intel 5 ou 7, jspa encore)| ram : 16G ddr4 minimum taille : 15 pouces avec pavé numérique | stockage : ssd de 500G (256 acceptable) et hdd de 1T minimum" --data-urlencode proprietaire="Juliette Bluem"  -X POST -v
+
+suprimer une note via invite ubuntu
+	curl localhost:8080/note/0 -X DELETE -v
+
+modifier une note via invite ubuntu (ici on modifie le titre de la note 1) :
+	curl localhost:8080/modif --data-urlencode id="1" --data-urlencode titre="actus" -X POST -v
+
+modifier une categorie d'une note via invite ubuntu :
+	curl localhost:8080/modif/categories --data-urlencode id="1" --data-urlencode categorie1="Ecole" --data-urlencode categorie2="mathematiques" --data-urlencode categorie3="resultats" -X POST -v
+
+
+Afficher toutes les notes via firefox :
+	http://localhost:8080/notes
+
+Afficher une note via firefox :
+	http://localhost:8080/notes/1

@@ -1,0 +1,11 @@
+Exercice 4
+
+Concevez une API pour un service simple d’enregistrement de notes.
+
+	Concevez une API qui permette de sauvegarder une note de texte.
+    	Une note possède une liste de tags et se trouve dans une seule catégorie.
+Conseil : définissez d’abord les types de données : note, tag, catégorie. Puis les chemins. Lisez l’exemple par défaut “Pet Store” dans l’éditeur pour comprendre la structure d’un fichier Swagger.
+
+Utilisez https://editor.swagger.io/ pour créer l’API
+
+Lorsque vous avez terminé, utilisez “File -> Save as YAML” et enregistrez le résultat dans un dossier exercice04 dans votre dépôt Git.

@@ -1,0 +1,30 @@
+Exercise 3 :
+
+Créez un projet java avec unirest. https://kong.github.io/unirest-java/
+Implémentez l’équivalent de :
+   $ curl https://api.github.com/users/{your username}
+Ajouter l’authentification et montrer le nombre de dépôts privés (voir diapo suivante).
+
+
+Développer le projet de la dernière fois
+Demander un nom d’user GitHub (par défaut votre user)
+Imprimer quelques détails pour l’user profile, lister les repos, et demander un repo (par défaut le repo de cours).
+Imprimer les détails du repo (y compris le nombre de issues ouverts).
+Stockez seulement l’URL pour obtenir le profil de l’user, utilisez le _url de la réponse par la suite (si cela est possible).
+
+Créer des classes pour : issues, label, comments
+Étendre l’interface pour afficher les issues d’un repo, les détails d’un issues (y compris les label) et les commentaires.
+Utilisez un objet Java cette fois, pas un JsonNode.
+
+
+Lister également les commentaires pour un numéro (jusqu’aux 30 premiers)
+Ajouter une fonction permettant de publier un commentaire.
+Si vous faites de bons progrès
+	Ajouter un support pour supprimer un commentaire
+	Mettre à jour un commentaire
+        Afficher plusieurs pages de commentaires
+
+
+Imprimer une liste de toutes les requêtes HTTP effectuées (type et URL) lorsque l’utilisateur quitte le programme. (C’est la dernière chose que nous ajoutons au programme)
+
+

@@ -1,0 +1,37 @@
+Exercice 5
+
+Utilisez l’Initializr pour configurer un projet Spring Boot dans un dossier “exercice05”.
+Créez une classe ave @Restcontroller NoteApp et ajoutez un endpoint “hello world” comme dans l’exemple.
+
+Implémenter une classe pour notes
+Ajouter une liste de notes à la classe NoteApp.
+Ajoutez quelques notes de remplacement à la liste (dans le constructeur de NoteApp).
+Mettez en œuvre des requêtes GET à partir de votre Swagger qui renvoient des notes.
+(Testez avec curl ou Postman)
+
+Ajout d’un support pour la création de notes
+Ajout d’un support pour la suppression des notes
+
+Ajoutez une annotation à vos objets à valider (Note).
+Créer une méthode pour mettre à jour une note (si vous avez une telle méthode dans votre Swagger)
+
+Ajouter des classes d’exception personnalisées pour vos cas d’erreur
+Ajouter une classe @RestControllerAdvice
+Gérer toutes vos exceptions personnalisées et l’exception MethodArgumentNotValidException.
+Essayez de déclencher une autre exception en testant avec Postman. Si vous en trouvez une, gérez-la aussi.
+
+Mettre en place un support pour les catégories :
+	Classe de catégorie
+    	Création de catégories, modification, suppression
+    	Définition de la catégorie d’une note
+    	Que se passe-t-il si vous supprimez une catégorie qui est utilisée par certaines notes ?
+
+Ajoutez des traces à tous les gestionnaires (y compris les gestionnaires d’exception !) et des messages INFO utiles aux méthodes clés.
+
+Écrivez quelques tests :
+	Au moins un qui crée une note, la récupère, la supprime et teste si elle a été supprimée.
+
+
+
+
+

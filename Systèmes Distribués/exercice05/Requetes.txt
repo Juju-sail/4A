@@ -1,0 +1,9 @@
+**Requetes et reponses**
+http://localhost:8080/hello
+	Hello toi!
+http://localhost:8080/hello?name=Juju
+	Hello Juju!
+http://localhost:8080/hello2/Juju
+	Hello Juju <3
+http://localhost:8080/hello2/Juju?love=grr
+	Hello Juju grr

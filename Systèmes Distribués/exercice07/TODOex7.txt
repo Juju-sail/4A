@@ -1,0 +1,7 @@
+Exercice 7
+
+Dans un dossier exercise07.
+Nous allons créer un service très simple qui renvoie la température d’une ville et peut convertir les températures de Celcius en Fahrenheit.
+Créer un schéma Cap’n Proto pour cela appelé temperature.capnp.
+
+Mettez en œuvre le système comme un simple système client-serveur avec des données fictives.

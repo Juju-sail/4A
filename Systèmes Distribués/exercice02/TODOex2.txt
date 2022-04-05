@@ -1,0 +1,10 @@
+Exercice 2
+
+Créer un nouveau dossier exercice02
+Ecrivez un script Python qui
+	Demande une list (comme vous voulez, je propose argparse) de ville à l’utilisateur
+    	Utilise la sortie json de wttr.in pour trouver la ville où la température est la plus agréable (feels like)
+    	Imprimer cette ville et la température actuelle
+    	Imprimez ces températures pour toutes les autres villes ainsi que la différence avec la meilleure ville.
+    	Ajouter une option pour imprimer ces données en JSON
+Sauvegardez-le dans le dossier.
