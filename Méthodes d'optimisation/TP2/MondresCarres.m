@@ -1,0 +1,25 @@
+clc;
+clear;
+
+data = load("donnees.mat");
+disp("On choisi un polynome de degré : ")
+n = 2
+disp("Les coefs du polynome obtenu sont :")
+c = MoindresCarres(data.tps,data.sortie,n)
+
+
+
+
+
+function [coeff] = MoindresCarres(xp,yp,n)
+    l = size(xp,2);
+    A = zeros(l,n);
+    for i = 1:(n+1)
+        A(:,n-i+2) = xp.^(i-1);
+    end
+    
+    a = A.' * A;
+    b = A.' * yp.';
+    coeff = a\b;
+end
+
