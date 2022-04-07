@@ -1,22 +1,19 @@
 clc;
 clear;
-close;
 
 data = load("donnees.mat");
 disp("On choisi un polynome de degré : ")
-n = 8
+n = 2
 disp("Les coefs du polynome obtenu sont :")
 c = MoindresCarres(data.tps,data.sortie,n)
-N = 100;
-t = zeros(1,N);
+N = 50;
+t = zeros(N);
 for i = 0:N
-    t(i+1) = i*0.5/N;
+    
 end
 
-P = polyval(c,t);
 
-figure
-plot(t,P,data.tps, data.sortie, "*")
+
 
 
 function [coeff] = MoindresCarres(xp,yp,n)
