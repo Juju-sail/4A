@@ -6,5 +6,11 @@ public class Sumatra extends Boisson{
 		this.description = "Sumatra";
 	}
 	
+	public Sumatra(int taille) {
+		super();
+		this.cout = 2.5;
+		this.description = "Sumatra";
+		this.setTaille(taille);
+	}
 	
 }

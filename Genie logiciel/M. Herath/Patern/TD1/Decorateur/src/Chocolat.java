@@ -7,6 +7,7 @@ public class Chocolat extends Ingredients{
 		this.boisson = boisson;
 		this.cout = boisson.cout();
 		this.description = boisson.getDescription();
+		this.setTaille(boisson.getTaille());
 	}
 	
 	public double cout() {
