@@ -3,16 +3,20 @@ clear;
 close;
 
 data = load("donnees.mat");
+
 disp("On choisi un polynome de degré : ")
 n = 8
+
 disp("Les coefs du polynome obtenu sont :")
 c = MoindresCarres(data.tps,data.sortie,n)
-N = 100;
-t = zeros(1,N);
-for i = 0:N
-    t(i+1) = i*0.5/N;
-end
 
+N = 100; %Nombre de points pour tracé courbe
+t = zeros(1,N);
+
+%for i = 0:N
+%   t(i+1) = i*0.5/N;
+%end
+t = 0 : 0.5/N : 0.5;
 P = polyval(c,t);
 
 figure
