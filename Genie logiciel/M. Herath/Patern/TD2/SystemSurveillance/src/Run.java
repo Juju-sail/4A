@@ -10,6 +10,8 @@ public class Run {
 		j.ecrire("ma chaine 4");
 		j.writer.close();
 		
+		System.out.println(j.getInstance());
+		
 		CommandeAlarmeON caon = new CommandeAlarmeON();
 		caon.exectuer();
 		CommandeAlarmeOFF caof = new CommandeAlarmeOFF();
