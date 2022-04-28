@@ -9,32 +9,23 @@
 |EC Programmation réseau 2 | V. Despré | 36 | 12 | 24 | 0 | 1|
 |EC Sécurité informatique & réseaux | C. Joliot/ P. Veutin |36 | 16 | 20 | 0 | 1 |
 
-### UE Automatique, Communications Numériques & Télécoms F. Sarry 8 8
+### UE Automatique, Communications Numériques & Télécoms
+| Cours | Responsable | Heures totales | HCM | HTD | HTP | Coef |
+|-------|-------------|----------------|-----|-----|-----|------|
+|EC Mécatronique | J.L. Noizette | 24 | 8 | 0 | 16 | 1 |
+|EC Traitement de données et plan d'expériences | T. Bastogne | 24 | 8 | 16 | 0 | 1 |
+|EC Traitement numérique du signal| S. Miron | 36| 16 | 20|0 | 1|
+|EC Transmissions numériques pour les Telecoms| F. Sarry |36| 16| 0|20| 1|
 
-EC Mécatronique J.L. Noizette 24 8 16 1
+### UE Projet, SHEJS & Langue I
+| Cours | Responsable | Heures totales | HCM | HTD | HTP | Coef |
+|-------|-------------|----------------|-----|-----|-----|------|
+|EC Projet interne transversal| M. Gilson| 40|0|0| 40| 4|
+|EC Éthique & Resp. de l'Ingénieur| L. Henry |12| 8| 4|0| 1|
+|EC Gestion de l'entreprise |M. Epicoco / E. Cremmel| 28| 20| 8|0| 2|
+|EC Anglais| A. Nivet |30 |0|30|0| 2|
 
-EC Traitement de données & plan d'expériences T. Bastogne 24 8 16 1
-
-EC Traitement numérique du signal S. Miron 36 16 20 1
-
-EC Transmissions numériques pour les Telecoms F. Sarry 36 16 20 1
-
-
-### UE Projet, SHEJS & Langue I M. Gilson 6 6
-
-EC Projet interne transversal M. Gilson 40 40 40 4
-
-EC Éthique & Resp. de l'Ingénieur L. Henry 12 8 4 1
-
-EC Gestion de l'entreprise M. Epicoco / E. Cremmel 28 20 8 2
-
-EC Anglais A. Nivet 30 30 2
-
-EC option 2ème langue optionnelle 20 20 1
-
-EC Evaluation des enseignements du semestre M. Gilson
-
-### UE Activités en entreprise L. Bau 8 8
+### UE Activités en entreprise
 
 EC Compétences techniques L. Bau 1
 
