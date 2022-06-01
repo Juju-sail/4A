@@ -15,7 +15,7 @@
 |EC Mécatronique | J.L. Noizette | 24 | 8 | 0 | 16 | 1 |
 |EC Traitement de données et plan d'expériences | T. Bastogne | 24 | 8 | 16 | 0 | 1 |
 |EC Traitement numérique du signal| S. Miron | 36| 16 | 20|0 | 1|
-|EC Transmissions numériques pour les Telecoms| F. Sarry |36| 16| 0|20| 1|
+|EC Transmissions numériques pour les Télécoms| F. Sarry |36| 16| 0|20| 1|
 
 ### UE Projet, SHEJS & Langue I
 | Cours | Responsable | Heures totales | HCM | HTD | HTP | Coef |
@@ -27,11 +27,12 @@
 
 ### UE Activités en entreprise
 
-EC Compétences techniques L. Bau 1
+| Cours                                      | Responsable | Heures totales | HCM  | HTD  | HTP  | Coef |
+| ------------------------------------------ | ----------- | -------------- | ---- | ---- | ---- | ---- |
+| EC Compétences techniques                  | L. Bau      |                |      |      |      |      |
+| EC Intégration professionnelle             | L. Bau      |                |      |      |      |      |
+| EC Compte-rendu des périodes en entreprise | L. Bau      |                |      |      |      |      |
 
-EC Intégration professionnelle L. Bau 1
-
-EC Compte-rendu des périodes en entreprise L. Bau 1
 
 
 ## SEM Semestre 8 IA2R FISA
